@@ -8,8 +8,3 @@
 .externalNativeBuild
 app/src/androidTest/
 app/src/main/jniLibs/
-app/src/test/
-camera_mic_codec/src/androidTest/
-camera_mic_codec/src/test/
-im/src/androidTest/
-im/src/test/
