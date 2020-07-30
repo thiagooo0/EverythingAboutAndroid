@@ -42,20 +42,17 @@ class SumOfTwoNum {
      * 用哈希表帮忙，快速找到另一半再哪里
      */
     fun twoSumWithHash(nums: IntArray, target: Int): IntArray {
-        val hashMap = HashMap<Int, Int>((nums.size * 1.5).toInt())
-        val result = intArrayOf(0, 1)
+        val hashMap = mutableMapOf<Int, Int>()
         var otherHalf = 0
         for ((index, i) in nums.withIndex()) {
             otherHalf = target - i
             if (hashMap.contains(otherHalf)) {
-                result[0] = hashMap[otherHalf]!!
-                result[1] = index
-                return result
+                return intArrayOf(hashMap[otherHalf]!!, index)
             } else {
                 hashMap[i] = index
             }
         }
-        return result
+        return intArrayOf(0, 1)
     }
 
     /**
