@@ -64,7 +64,7 @@ class TwoSum {
     fun twoSumSearch(array: IntArray, target: Int): IntArray {
         var i = 0
         var j = array.size - 1
-        while (i != j) {
+        while (i <= j) {
             when {
                 array[i] + array[j] > target -> {
                     j--
