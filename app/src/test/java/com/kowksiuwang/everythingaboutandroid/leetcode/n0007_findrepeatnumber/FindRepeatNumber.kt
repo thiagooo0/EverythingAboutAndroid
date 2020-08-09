@@ -1,4 +1,4 @@
-package com.kowksiuwang.everythingaboutandroid.n0007_findrepeatnumber
+package com.kowksiuwang.everythingaboutandroid.leetcode.n0007_findrepeatnumber
 
 import org.junit.Assert
 import org.junit.Test
