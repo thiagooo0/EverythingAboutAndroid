@@ -35,11 +35,7 @@ import java.util.*
  *
  * 提示：
  * pop、top 和 getMin 操作总是在 非空栈 上调用。
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/min-stack
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- * Created by GuoShaoHong on 2020/8/7.
+
  */
 /**
  * 其实用array效率可能会高不少
