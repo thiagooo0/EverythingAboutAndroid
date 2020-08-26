@@ -1,6 +1,10 @@
 package com.kowksiuwang.everythingaboutandroid.leetcode.lc0101_checkbinarytreesymmetric
 
+import android.os.Handler
+import android.os.Message
+import android.os.Messenger
 import com.kowksiuwang.everythingaboutandroid.leetcode.data.TreeNode
+import org.junit.Test
 
 /**
  * 给定一个二叉树，检查它是否是镜像对称的。
@@ -45,5 +49,18 @@ class CheckBinaryTreeSymmetric {
         return (leftNode!!.`val` == rightNode!!.`val`)
                 && isMirror(leftNode.left, rightNode.right)
                 && isMirror(leftNode.right, rightNode.left)
+    }
+
+    @Test
+    fun test() {
+//        val s :Source<Any> = "34"
+        val handler = Handler()
+        var m = Messenger(handler)
+        var m2 = Messenger(m.binder)
+        m.send(Message.obtain())
+    }
+
+    interface Source<out T> {
+
     }
 }
