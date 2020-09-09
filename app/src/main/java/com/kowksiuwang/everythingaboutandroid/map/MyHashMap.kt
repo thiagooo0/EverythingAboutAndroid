@@ -1,5 +1,7 @@
 package com.kowksiuwang.everythingaboutandroid.map
 
+import java.io.Serializable
+
 /**
  * Map接口最基础的hash表实现类，这个实现类提供了map的所有操作，并且允许插入空的key和value。
  * hashmap差不多等同于hashtable，除了异步（unsynchronized）和允许空值。
@@ -32,13 +34,23 @@ package com.kowksiuwang.everythingaboutandroid.map
  *  这个类返回的iterator是由fail-fast机制的：map的iterator被创建后，除非是调用iterator自身的remove方法，任何
  *  结构上的改变都会导致iterator抛出ConcurrentModificationException异常。因此，面对并发修改，iterator会干净
  *  快速地报错，而不是冒着在未来某个时间点会出现不确定行为的风险苟活。
+ *  需要注意的是，fail-fast不能保证任何东西，在多线程并发的情况下更加不能保证一定会抛出异常。
+ *  fail-fast会尽力，但是不要依赖它去确保程序的正确性，只能用它来排除bug。
  *
  *
  * Created by GuoShaoHong on 9/9/2020.
  */
-class MyHashMap<K, out V> : AbstractMap<K,V>(){
+class MyHashMap<K, out V> : AbstractMap<K, V>(), Map<K, V>, Cloneable, Serializable {
     override val entries: Set<Map.Entry<K, V>>
         get() = TODO("Not yet implemented")
+
+
+
+
+
+
+
+
 
 
 }
