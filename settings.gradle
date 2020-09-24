@@ -1,2 +1,4 @@
+include ':kmedia'
+include ':kaudiorecorder'
 include ':app'
 rootProject.name = "EverythingAboutAndroid"
