@@ -22,6 +22,14 @@ open class BaseEncoder :
 
     }
 
+    open fun pause() {
+
+    }
+
+    open fun restart() {
+
+    }
+
     open fun stop() {
 
     }
@@ -38,7 +46,7 @@ open class BaseEncoder :
         encoderDataListeners.remove(l)
     }
 
-    override fun onDataAvailable(buffer: ByteBuffer, info :MediaCodec.BufferInfo) {
+    override fun onDataAvailable(buffer: ByteBuffer, info: MediaCodec.BufferInfo) {
         for (l in encoderDataListeners) {
             l.onDataAvailable(buffer, info)
         }
@@ -53,6 +61,6 @@ open class BaseEncoder :
 }
 
 interface EncoderDataListener {
-    fun onDataAvailable(buffer: ByteBuffer, info :MediaCodec.BufferInfo)
+    fun onDataAvailable(buffer: ByteBuffer, info: MediaCodec.BufferInfo)
     fun onFormatChanged(format: MediaFormat)
 }

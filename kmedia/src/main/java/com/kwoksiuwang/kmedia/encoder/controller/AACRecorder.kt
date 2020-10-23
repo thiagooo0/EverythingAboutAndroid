@@ -2,10 +2,10 @@ package com.kowksiuwang.everythingaboutandroid.media.encoder.controller
 
 import android.media.MediaCodec
 import android.util.Log
+import com.kwoksiuwang.kmedia.encoder.controller.BaseEncoderController
 import kotlinx.coroutines.*
 import java.io.FileOutputStream
 import java.lang.Exception
-import java.nio.Buffer
 import java.nio.ByteBuffer
 
 /**

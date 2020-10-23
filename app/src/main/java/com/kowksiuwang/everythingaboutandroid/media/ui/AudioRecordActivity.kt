@@ -7,9 +7,8 @@ import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.kowksiuwang.everythingaboutandroid.R
 import com.kowksiuwang.everythingaboutandroid.media.encoder.EncoderDataListener
-import com.kowksiuwang.everythingaboutandroid.media.encoder.KAudioEncoder
+import com.kwoksiuwang.kmedia.encoder.KAudioEncoder
 import com.kowksiuwang.everythingaboutandroid.media.encoder.controller.AACRecorder
-import kotlinx.android.synthetic.main.activity_audio_record.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import java.io.File
