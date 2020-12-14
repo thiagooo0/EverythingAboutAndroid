@@ -9,7 +9,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        Collections.synchronizedMap(HashMap<Int,Int>())
+        val i = 3
+        val hashmap = HashMap<Int, Int>()
+        Collections.synchronizedMap(HashMap<Int, Int>())
     }
 }
