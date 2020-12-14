@@ -19,20 +19,28 @@ public class Solution {
         splitIntoFibonacci("0123");
         splitIntoFibonacci("9876543210987654321119753086421");
         splitIntoFibonacci("1101111");
+
+        splitIntoFibonacci3("0123");
     }
 
+    /**
+     * 49% 91%
+     *
+     * @param S
+     * @return
+     */
     public List<Integer> splitIntoFibonacci(String S) {
         List<Integer> result = new ArrayList<>();
-        int[] sInt = new int[S.length()];
-        char[] cS = S.toCharArray();
-        for (int i = 0; i < cS.length; i++) {
-            sInt[i] = Integer.parseInt(String.valueOf(cS[i]));
-        }
-        System.out.println("sInt:" + Arrays.toString(sInt));
-        for (int i = 1; i < 11 && i <= sInt.length / 2; i++) {
-            for (int j = i + 1; j < i + 11 && j <= sInt.length * 2 / 3; j++) {
-                long first = jointNum(sInt, 0, i);
-                long second = jointNum(sInt, i, j);
+        char[] chars = S.toCharArray();
+        System.out.println("sInt:" + Arrays.toString(chars));
+        for (int i = 1; i < 11 && i <= chars.length / 2; i++) {
+            long first = jointNum(chars, 0, i);
+            if (first > Integer.MAX_VALUE) {
+                System.out.println("超出int范围");
+                continue;
+            }
+            for (int j = i + 1; j < i + 11 && j <= chars.length * 2 / 3; j++) {
+                long second = jointNum(chars, i, j);
                 System.out.println("第一个数:" + first + ",第二个数:" + second);
                 if (first > Integer.MAX_VALUE || second > Integer.MAX_VALUE || first + second > Integer.MAX_VALUE) {
                     System.out.println("超出int范围");
@@ -41,7 +49,7 @@ public class Solution {
 
                 result.add((int) first);
                 result.add((int) second);
-                if (check(sInt, j, result, (int) first, (int) second)) {
+                if (check(chars, j, result, (int) first, (int) second)) {
                     System.out.print("result:[");
                     for (int r : result) {
                         System.out.print(r + ",");
@@ -62,7 +70,7 @@ public class Solution {
         return result;
     }
 
-    private boolean check(int[] array, int nextIndex, List<Integer> result, int first, int second) {
+    private boolean check(char[] array, int nextIndex, List<Integer> result, int first, int second) {
         while (nextIndex < array.length) {
             long nextNum = first + second;
             int nextNumLength = (nextNum + "").length();
@@ -84,6 +92,15 @@ public class Solution {
         return true;
     }
 
+    public long jointNum(char[] array, int start, int end) {
+        int result = 0;
+        while (start < end) {
+            result = result * 10 + (array[start] - '0');
+            start++;
+        }
+        return result;
+    }
+
     public long jointNum(int[] array, int start, int end) {
         int result = 0;
         while (start < end) {
@@ -91,6 +108,46 @@ public class Solution {
             start++;
         }
         return result;
+    }
+
+    /**
+     * 学,100%,92%
+     */
+    public List<Integer> splitIntoFibonacci3(String S) {
+        List<Integer> result = new ArrayList<>();
+        mBacktrack(S.toCharArray(), result, 0);
+        return result;
+    }
+
+    private boolean mBacktrack(char[] digit, List<Integer> res, int index) {
+        //终止条件，用于终止递归。
+        if (index == digit.length && res.size() > 2) {
+            return true;
+        }
+        for (int i = index; i < digit.length; i++) {
+            if (digit[index] == '0' && i > index) {
+                break;
+            }
+            //某些操作
+            long value = jointNum(digit, index, i + 1);
+            //选择是否进入下一步递归
+            if (value > Integer.MAX_VALUE) {
+                break;
+            }
+            int size = res.size();
+            if (size > 1 && value > res.get(size - 1) + res.get(size - 2)) {
+                break;
+            }
+            if (size <= 1 || res.get(size - 1) + res.get(size - 2) == value) {
+                //继续找啊
+                res.add((int) value);
+                if (mBacktrack(digit, res, i+1)) {
+                    return true;
+                }
+                res.remove(size);
+            }
+        }
+        return false;
     }
 
     /**
