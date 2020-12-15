@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import kotlinx.coroutines.*
 import org.junit.Test
+import kotlin.concurrent.thread
+import kotlin.coroutines.coroutineContext
 import java.util.concurrent.Future
 import kotlin.coroutines.*
 
@@ -11,8 +13,13 @@ import kotlin.coroutines.*
  * Created by GuoShaoHong on 9/3/2020.
  */
 class Test {
+    val task = fun() {
+
+    }
+
     @Test
     fun test() {
+        thread(block = task)
         GlobalScope.launch {
             joinTest(0)
             delay(10)
