@@ -2,14 +2,20 @@ package com.kowksiuwang.everythingaboutandroid.coroutine
 
 import kotlinx.coroutines.*
 import org.junit.Test
+import kotlin.concurrent.thread
 import kotlin.coroutines.coroutineContext
 
 /**
  * Created by GuoShaoHong on 9/3/2020.
  */
 class Test {
+    val task = fun() {
+
+    }
+
     @Test
     fun test() {
+        thread(block = task)
         GlobalScope.launch {
             joinTest(0)
             delay(10)
@@ -25,7 +31,7 @@ class Test {
             var i = 0
             while (i < 10) {
                 print("$id $i \n")
-                while(isActive){
+                while (isActive) {
                     val i = 0
                     return@launch
                 }
