@@ -44,6 +44,12 @@ class Test {
 
     }
 
+    fun doSomething() {
+        Thread{
+            Object().wait()
+        }.start()
+    }
+
     var job: Job? = null
     suspend fun joinTest(id: Int) {
         val pairs = id to 10
