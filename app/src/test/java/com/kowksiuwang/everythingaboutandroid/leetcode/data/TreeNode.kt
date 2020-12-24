@@ -8,7 +8,7 @@ data class TreeNode(
     var left: TreeNode? = null,
     var right: TreeNode? = null
 )
-
-fun CreateTree(array: Array<Int?>): TreeNode? {
-    return TreeNode()
-}
+//
+//fun CreateTree(array: Array<Int?>): TreeNode? {
+//    return TreeNode()
+//}

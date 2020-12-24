@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.kowksiuwang.everythingaboutandroid"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -75,4 +75,6 @@ dependencies {
 
     // optional - ReactiveStreams support for LiveData
     implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 }
