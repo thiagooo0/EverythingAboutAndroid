@@ -54,17 +54,17 @@ class Test {
     suspend fun joinTest(id: Int) {
         val pairs = id to 10
 
-        job?.cancelAndJoin()
-        job = GlobalScope.launch() {
-            var i = 0
-            while (i < 10) {
-                print("$id $i \n")
-                while (isActive) {
-                    val i = 0
-                    return@launch
-                }
-                i++
-            }
-        }
+//        job?.cancelAndJoin()
+//        job = GlobalScope.launch() {
+//            var i = 0
+//            while (i < 10) {
+//                print("$id $i \n")
+//                while (isActive) {
+//                    val i = 0
+//                    return@launch
+//                }
+//                i++
+//            }
+//        }
     }
 }
