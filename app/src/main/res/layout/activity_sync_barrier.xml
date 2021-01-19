@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".handler.SyncBarrierActivity">
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="#75B1D0D7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_content">
+
+        <Button
+            android:id="@+id/btn_sent_sync_msg"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="发送同步消息" />
+
+        <Button
+            android:id="@+id/btn_sent_async_msg"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="发送异步消息" />
+
+
+        <Button
+            android:id="@+id/btn_add_sync_barrier"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="增加同步屏障" />
+
+        <Button
+            android:id="@+id/btn_remove_sync_barrier"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="增加同步屏障" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
